@@ -7,7 +7,7 @@
     <version>0.0.1</version>
     <packaging>jar</packaging>
 	
-    <name>Lunar Goddess</name>
+    <name>The SHining Moon</name>
     <description>some description</description>
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
