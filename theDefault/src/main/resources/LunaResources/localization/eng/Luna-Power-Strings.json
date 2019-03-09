@@ -1,0 +1,26 @@
+{
+"Luna:CommonPower": {
+        "NAME": "Placeholder Power",
+        "DESCRIPTIONS": ["You applied #b", " keyword.", " keywords."]
+},
+"Luna:RarePower": {
+        "NAME": "Placeholder Power",
+        "DESCRIPTIONS": ["At the start of your turn, TOUCH #b", " enemy." , " enemies."]
+},
+
+        "Luna:SlashPower": {
+                "NAME": "Slash",
+                "DESCRIPTIONS": ["You are currently in the #rSlash stance NL provides #b2 $yStrength at the cost of #r1 #yDexterity NLcLasts for ",
+                "turns."]
+        },
+        "Luna:EngardePower": {
+                "NAME": "Engarde",
+                "DESCRIPTIONS": ["You are currently in the #gEngarde stance NL provides #b2 #yDexterity at the cost of #r1 #yStrength NL Lasts for ",
+                "turns."]
+        },
+        "Luna:ParryPower": {
+                "NAME": "Parry",
+                "DESCRIPTIONS": ["You are currently in the #bParry stance NL ignores ", "damage from the first attack NL Lasts for ",
+                        "turns."]
+        }
+}
