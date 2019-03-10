@@ -66,7 +66,7 @@ public class Slash extends CustomCard {
         super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = MAGIC;
         damage = baseDamage = DAM;
-        tags.add(ShinyMoonBase.changeSLASH);
+        //tags.add(ShinyMoonBase.changeSLASH);
     }
 
 

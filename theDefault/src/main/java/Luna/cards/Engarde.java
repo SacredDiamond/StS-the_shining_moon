@@ -66,7 +66,7 @@ public class Engarde extends CustomCard {
         super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = MAGIC;
         block = baseBlock = BLO;
-        tags.add(ShinyMoonBase.changeENGARDE);
+      //  tags.add(ShinyMoonBase.changeENGARDE);
     }
 
 

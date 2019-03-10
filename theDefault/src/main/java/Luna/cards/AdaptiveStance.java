@@ -78,17 +78,17 @@ public class AdaptiveStance extends CustomCard {
         ChooseAction choice = new ChooseAction(this, p, extend[2]);
 
         choice.add(extend[3], extend[4], () -> {
-            tags.add(ShinyMoonBase.changeSLASH);
+        //    tags.add(ShinyMoonBase.changeSLASH);
             AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction(new SlashOrb(), magicNumber));
         });
 
         choice.add(extend[5], extend[6], () -> {
-            tags.add(ShinyMoonBase.changeENGARDE);
+         //   tags.add(ShinyMoonBase.changeENGARDE);
             AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction(new EngardeOrb(), magicNumber));
         });
 if(upgraded){
         choice.add(extend[7], extend[8], () -> {
-            tags.add(ShinyMoonBase.changePARRY);
+        //    tags.add(ShinyMoonBase.changePARRY);
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p,
                     new ParryPower(p, p, magicNumber), magicNumber));
         });}

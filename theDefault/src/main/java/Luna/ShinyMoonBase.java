@@ -118,14 +118,18 @@ public class ShinyMoonBase implements
     public static final String THE_DEFAULT_SKELETON_ATLAS = "LunaResources/images/char/defaultCharacter/skeleton.atlas";
     public static final String THE_DEFAULT_SKELETON_JSON = "LunaResources/images/char/defaultCharacter/skeleton.json";
 
-
+/*
     @SpireEnum
     public static AbstractCard.CardTags changeSLASH;
+    @SpireEnum
     public static AbstractCard.CardTags changeENGARDE;
+    @SpireEnum
     public static AbstractCard.CardTags changePARRY;
+    @SpireEnum
     public static AbstractCard.CardTags changePIERCE;
+    @SpireEnum
     public static AbstractCard.CardTags changeACE;
-
+*/
     // =============== MAKE IMAGE PATHS =================
 
     public static String makeCardPath(String resourcePath) {

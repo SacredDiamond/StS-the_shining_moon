@@ -14,14 +14,14 @@ import com.megacrit.cardcrawl.powers.ThornsPower;
 
 public class ChangeStanceAction extends AbstractGameAction {
 
-    private AbstractPlayer p;
+    AbstractPlayer p = AbstractDungeon.player;
     private AbstractOrb o;
 private int baseStacks;
     public ChangeStanceAction(AbstractOrb newOrb, int baseStacks)
 
     {
 this.o = newOrb;
-        this.p = p;
+
         this.baseStacks = baseStacks;
     }
 
@@ -39,15 +39,15 @@ this.o = newOrb;
 
             this.o.passiveAmount += stacks;
 
-            if(!p.orbs.isEmpty()) {
+          //  if(!p.orbs.isEmpty()) {
                 for (AbstractOrb orb : p.orbs) {
                     if (orb instanceof OnChannelOrb) {
                         ((OnChannelOrb) orb).onChannel(this.o);
                     }
                 }
-            }else if (this.o instanceof OnChannelOrb) {
-                    ((OnChannelOrb) this.o).onChannel(this.o);
-            }
+          //  }else if (this.o instanceof OnChannelOrb) {
+         //           ((OnChannelOrb) this.o).onChannel(this.o);
+         //  }
 
 
               /*  if (this.o.ID.equals(SlashOrb.ORB_ID)){
