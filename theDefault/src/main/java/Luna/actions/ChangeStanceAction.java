@@ -1,20 +1,16 @@
 package Luna.actions;
 
+import Luna.interfaces.OnChannelOrb;
 import Luna.orbs.*;
-import Luna.powers.CommonPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
-import com.megacrit.cardcrawl.actions.defect.EvokeOrbAction;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
-import com.megacrit.cardcrawl.relics.ChemicalX;
-import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
+import com.megacrit.cardcrawl.powers.ThornsPower;
 
 public class ChangeStanceAction extends AbstractGameAction {
 
@@ -32,6 +28,9 @@ this.o = newOrb;
     @Override
     public void update() {
 
+
+
+
         if((this.o.ID.contains("Stance") || this.o.name.contains("Stance")) && !(AbstractDungeon.player.orbs.get(0).ID == this.o.ID)){
             int stacks = AbstractDungeon.player.orbs.get(0).passiveAmount + baseStacks;
 
@@ -40,7 +39,18 @@ this.o = newOrb;
 
             this.o.passiveAmount += stacks;
 
-                if (this.o.ID.equals(SlashOrb.ORB_ID)){
+            if(!p.orbs.isEmpty()) {
+                for (AbstractOrb orb : p.orbs) {
+                    if (orb instanceof OnChannelOrb) {
+                        ((OnChannelOrb) orb).onChannel(this.o);
+                    }
+                }
+            }else if (this.o instanceof OnChannelOrb) {
+                    ((OnChannelOrb) this.o).onChannel(this.o);
+            }
+
+
+              /*  if (this.o.ID.equals(SlashOrb.ORB_ID)){
                 AbstractDungeon.actionManager.addToBottom(
                         new ApplyPowerAction(p, p, new StrengthPower( p, 2), 2));
 
@@ -63,12 +73,12 @@ this.o = newOrb;
             if (this.o.ID.equals("AceStance")){
 
             }////////////
-
+*/
             this.o.update();
         }else if((this.o.ID.contains("Stance") || this.o.name.contains("Stance")) && (AbstractDungeon.player.orbs.get(0).ID == this.o.ID)){
             AbstractDungeon.player.orbs.get(0).passiveAmount += baseStacks;
         }
-        
+
         isDone = true;
     }
 }

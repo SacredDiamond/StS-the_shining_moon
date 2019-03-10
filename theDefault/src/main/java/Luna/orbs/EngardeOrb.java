@@ -1,6 +1,7 @@
 package Luna.orbs;
 
 import Luna.ShinyMoonBase;
+import Luna.interfaces.OnChannelOrb;
 import Luna.util.TextureLoader;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -24,7 +25,7 @@ import com.megacrit.cardcrawl.vfx.combat.OrbFlareEffect;
 
 import static Luna.ShinyMoonBase.makeOrbPath;
 
-public class EngardeOrb extends AbstractOrb {
+public class EngardeOrb extends AbstractOrb implements OnChannelOrb {
 
     // Standard ID/Description
     public static final String ORB_ID = ShinyMoonBase.makeID("EngardeStance");
@@ -38,7 +39,7 @@ public class EngardeOrb extends AbstractOrb {
     private float vfxIntervalMax = 0.4f;
     private static final float ORB_WAVY_DIST = 0.04f;
     private static final float PI_4 = 12.566371f;
-
+AbstractPlayer p = AbstractDungeon.player;
     public EngardeOrb() {
 
         ID = ORB_ID;
@@ -67,6 +68,17 @@ public class EngardeOrb extends AbstractOrb {
         evokeAmount = baseEvokeAmount;
     }
 
+
+
+    @Override
+    public void onChannel(AbstractOrb orb) {
+
+        AbstractDungeon.actionManager.addToBottom(
+                new ApplyPowerAction(p, p, new DexterityPower( p, 2), 2));
+
+        AbstractDungeon.actionManager.addToBottom(
+                new ApplyPowerAction(p, p, new StrengthPower( p, -1), -1));
+    }
     @Override
     public void onEvoke() { // 1.On Orb Evoke
         AbstractPlayer p = AbstractDungeon.player;

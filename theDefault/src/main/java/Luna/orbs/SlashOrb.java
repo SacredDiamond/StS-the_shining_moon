@@ -1,6 +1,8 @@
 package Luna.orbs;
 
 import Luna.ShinyMoonBase;
+
+import Luna.interfaces.OnChannelOrb;
 import Luna.util.TextureLoader;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -24,7 +26,7 @@ import com.megacrit.cardcrawl.vfx.combat.OrbFlareEffect;
 
 import static Luna.ShinyMoonBase.makeOrbPath;
 
-public class SlashOrb extends AbstractOrb {
+public class SlashOrb extends AbstractOrb implements OnChannelOrb {
 
     // Standard ID/Description
     public static final String ORB_ID = ShinyMoonBase.makeID("SlashStance");
@@ -38,8 +40,10 @@ public class SlashOrb extends AbstractOrb {
     private float vfxIntervalMax = 0.4f;
     private static final float ORB_WAVY_DIST = 0.04f;
     private static final float PI_4 = 12.566371f;
+    AbstractPlayer p = AbstractDungeon.player;
 
     public SlashOrb() {
+
 
         ID = ORB_ID;
         name = orbString.NAME;
@@ -65,7 +69,16 @@ public class SlashOrb extends AbstractOrb {
       //  passiveAmount = basePassiveAmount;
         evokeAmount = baseEvokeAmount;
     }
+    @Override
+    public void onChannel(AbstractOrb orb) {
 
+
+        AbstractDungeon.actionManager.addToBottom(
+                new ApplyPowerAction(p, p, new StrengthPower( p, 2), 2));
+
+        AbstractDungeon.actionManager.addToBottom(
+                new ApplyPowerAction(p, p, new DexterityPower( p, -1), -1));
+    }
 
     @Override
     public void onEvoke() { // 1.On Orb Evoke
@@ -78,6 +91,10 @@ public class SlashOrb extends AbstractOrb {
 
         AbstractDungeon.actionManager.addToBottom(
                 new ApplyPowerAction(p, p, new DexterityPower(p, 1), 1));
+
+
+
+
     }
 
     @Override
@@ -130,4 +147,6 @@ updateDescription();
     public AbstractOrb makeCopy() {
         return new SlashOrb();
     }
+
+
 }
