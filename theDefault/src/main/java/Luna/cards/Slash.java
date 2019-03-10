@@ -1,13 +1,16 @@
 package Luna.cards;
 
 import Luna.ShinyMoonBase;
+import Luna.actions.ChangeStanceAction;
 import Luna.characters.Luna;
+import Luna.orbs.SlashOrb;
 import Luna.powers.CommonPower;
 import Luna.powers.Stances.SlashPower;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -71,8 +74,11 @@ public class Slash extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
 
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p,
-                new SlashPower(p, p, magicNumber), magicNumber));
+       // AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p,
+       //         new SlashPower(p, p, magicNumber), magicNumber));
+
+        AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction(new SlashOrb(), magicNumber));
+
 
         AbstractDungeon.actionManager.addToBottom(
                 new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn),

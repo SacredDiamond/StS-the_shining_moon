@@ -1,7 +1,10 @@
 package Luna.cards;
 
 import Luna.ShinyMoonBase;
+import Luna.actions.ChangeStanceAction;
 import Luna.characters.Luna;
+import Luna.orbs.EngardeOrb;
+import Luna.orbs.SlashOrb;
 import Luna.powers.Stances.EngardePower;
 import Luna.powers.Stances.ParryPower;
 import Luna.powers.Stances.SlashPower;
@@ -76,14 +79,12 @@ public class AdaptiveStance extends CustomCard {
 
         choice.add(extend[3], extend[4], () -> {
             tags.add(ShinyMoonBase.changeSLASH);
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p,
-                    new SlashPower(p, p, magicNumber), magicNumber));
+            AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction(new SlashOrb(), magicNumber));
         });
 
         choice.add(extend[5], extend[6], () -> {
             tags.add(ShinyMoonBase.changeENGARDE);
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p,
-                    new EngardePower(p, p, magicNumber), magicNumber));
+            AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction(new EngardeOrb(), magicNumber));
         });
 if(upgraded){
         choice.add(extend[7], extend[8], () -> {

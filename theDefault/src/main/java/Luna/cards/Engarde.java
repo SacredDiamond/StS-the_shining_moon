@@ -1,7 +1,9 @@
 package Luna.cards;
 
 import Luna.ShinyMoonBase;
+import Luna.actions.ChangeStanceAction;
 import Luna.characters.Luna;
+import Luna.orbs.EngardeOrb;
 import Luna.powers.Stances.EngardePower;
 import Luna.powers.Stances.SlashPower;
 import basemod.abstracts.CustomCard;
@@ -71,8 +73,9 @@ public class Engarde extends CustomCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p,
-                new EngardePower(p, p, magicNumber), magicNumber));
+        //AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p,
+        //        new EngardePower(p, p, magicNumber), magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction(new EngardeOrb(), magicNumber));
 
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
     }
@@ -83,7 +86,7 @@ public class Engarde extends CustomCard {
         if (!upgraded) {
             upgradeName();
             upgradeDamage(2);
-            upgradeMagicNumber(1);
+            upgradeBlock(1);
             initializeDescription();
         }
     }

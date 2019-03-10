@@ -1,11 +1,59 @@
 {
-  "Luna:DefaultOrb": {
-    "NAME": "Default Orb",
+                   "Luna:DefaultOrb": {
+                       "NAME": "Default Orb",
+                       "DESCRIPTION": [
+                             "#yPassive: At the start of your turn, draw #b",
+                              " card.",
+                              " cards.",
+                              "NL #yEvoke: Deal #b damage to all enemies."
+                            ]
+                   },
+  "Luna:SlashStance": {
+    "NAME": "Stance: Slash",
     "DESCRIPTION": [
-      "#yPassive: At the start of your turn, draw #b",
-      " card.",
-      " cards.",
-      "NL #yEvoke: Deal #b damage to all enemies."
+      "While this Stance is active, gain #b2 #yStrength at the cost of #r1 $yDexterity ",
+
+      "NL #yEvoke: Deal #b", " damage to all enemies."
+    ]
+  },
+
+  "Luna:EngardeStance": {
+    "NAME": "Stance: Engarde",
+    "DESCRIPTION": [
+      "While this Stance is active, gain #b2 #yDexterity at the cost of #r1 #yStrength ",
+
+      "NL #yEvoke: gain #b", " Block."
+    ]
+  },
+
+  "Luna:ParryStance": {
+    "NAME": "Stance: Slash",
+    "DESCRIPTION": [
+      "While this Stance is active, gain #b2 #yStrength at the cost of #r1 $yDexterity",
+      "",
+
+      "NL #yEvoke: Deal #b", " damage to the enemy with the lowest hp."
+    ]
+  },
+
+  "Luna:PierceStance": {
+    "NAME": "Stance: Pierce",
+    "DESCRIPTION": [
+      "While this Stance is active, gain deal 3 bonus attack damage and NL ",
+      "Whenever you attack an enemy, 3 of the damage ignores block. ",
+      "",
+
+      "NL #yEvoke: #pidk"
+    ]
+  },
+
+  "Luna:AceStance": {
+    "NAME": "Stance: Ace",
+    "DESCRIPTION": [
+      "While this Stance is active, gain #b2 #yStrength and #b2 Dexterity at the cost of #pidk",
+      "",
+
+      "NL #yEvoke:#pidk"
     ]
   }
 }

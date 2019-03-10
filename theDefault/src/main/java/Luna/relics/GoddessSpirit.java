@@ -1,23 +1,27 @@
 package Luna.relics;
 
+import Luna.orbs.*;
+import Luna.powers.Stances.SlashPower;
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
+import com.evacipated.cardcrawl.mod.stslib.relics.OnChannelRelic;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import Luna.ShinyMoonBase;
 import Luna.util.TextureLoader;
+import com.megacrit.cardcrawl.orbs.AbstractOrb;
 
 import static Luna.ShinyMoonBase.makeRelicOutlinePath;
 import static Luna.ShinyMoonBase.makeRelicPath;
 
-public class GoddessSpirit extends CustomRelic {
+public class GoddessSpirit extends CustomRelic implements OnChannelRelic {
 
     /*
      * https://github.com/daviscook477/BaseMod/wiki/Custom-Relics
      *
-     * Gain 1 energy.
+     * whenever you enter a new stance of that turn, draw a card
      */
 
     // ID, images, text.
@@ -39,7 +43,6 @@ public class GoddessSpirit extends CustomRelic {
     // Flash at the start of Battle.
     @Override
     public void atBattleStartPreDraw() {
-        flash();
 
         SlashDraw = true;
         EngardeDraw = true;
@@ -50,6 +53,7 @@ public class GoddessSpirit extends CustomRelic {
 
     @Override
     public void atTurnStart() {
+flash();
 
         SlashDraw = true;
         EngardeDraw = true;
@@ -57,7 +61,7 @@ public class GoddessSpirit extends CustomRelic {
         PierceDraw = true;
         AceDraw = true;
     }
-
+/*
     @Override
     public void onUseCard(AbstractCard targetCard, UseCardAction useCardAction) {
         System.out.println("_------------------------------------_");
@@ -68,8 +72,11 @@ public class GoddessSpirit extends CustomRelic {
         System.out.println();
 
 
-        /*                                                                                       */
+                    ////////////////////////
         System.out.println("checking if " + targetCard + " is changing stance into SLASH....");
+        System.out.println();
+        System.out.print("checking if " + AbstractDungeon.player + " has SLASH.... | ");
+        System.out.println(AbstractDungeon.player.hasPower(SlashPower.POWER_ID));
         System.out.println();
         System.out.print("checking if " + targetCard + " has SLASH tag.... | ");
         System.out.println(targetCard.hasTag(ShinyMoonBase.changeSLASH));
@@ -80,17 +87,17 @@ public class GoddessSpirit extends CustomRelic {
         System.out.println("-.-.-.-CHECK DONE-.-.-.-");
         System.out.println("_------------------------------------_");
         System.out.println();
-        /*                                                                                       */
+                                        //////////////
 
 ////////////////////
-        if (targetCard.hasTag(ShinyMoonBase.changeSLASH) && SlashDraw) {
+        if ((targetCard.hasTag(ShinyMoonBase.changeSLASH) || AbstractDungeon.player.hasPower(SlashPower.POWER_ID) ) && SlashDraw) {
 
             AbstractDungeon.actionManager.addToBottom(new DrawCardAction(AbstractDungeon.player, 1));
             SlashDraw = false;
         }
 /////////////////////
 
-        /*                                                                                       */
+                            /////////////////////
         System.out.println("checking if " + targetCard + " is changing stance into ENGARDE....");
         System.out.println();
         System.out.print("checking if " + targetCard + " has ENGARDE tag.... | ");
@@ -102,8 +109,7 @@ public class GoddessSpirit extends CustomRelic {
         System.out.println("-.-.-.-CHECK DONE-.-.-.-");
         System.out.println("_------------------------------------_");
         System.out.println();
-        /*                                                                                       */
-
+                                ///////////////////
 ////////////
         if (targetCard.hasTag(ShinyMoonBase.changeENGARDE) && EngardeDraw) {
 
@@ -112,7 +118,7 @@ public class GoddessSpirit extends CustomRelic {
         }
 //////////
 
-        /*                                                                                       */
+                                    /////////////////
         System.out.println("checking if " + targetCard + " is changing stance into PARRY....");
         System.out.println();
         System.out.print("checking if " + targetCard + " has PARRY tag.... | ");
@@ -124,7 +130,7 @@ public class GoddessSpirit extends CustomRelic {
         System.out.println("-.-.-.-CHECK DONE-.-.-.-");
         System.out.println("_------------------------------------_");
         System.out.println();
-        /*                                                                                       */
+                                ///////////////
 
 ////////////
         if (targetCard.hasTag(ShinyMoonBase.changePARRY) && ParryDraw) {
@@ -134,7 +140,7 @@ public class GoddessSpirit extends CustomRelic {
         }
 /////////////
 
-        /*                                                                                       */
+                                /////////////////
         System.out.println("checking if " + targetCard + " is changing stance into PIERCE....");
         System.out.println();
         System.out.print("checking if " + targetCard + " has PIERCE tag.... | ");
@@ -144,7 +150,7 @@ public class GoddessSpirit extends CustomRelic {
         System.out.println(PierceDraw);
         System.out.println("_------------------------------------_");
         System.out.println("-.-.-.-CHECK DONE-.-.-.-");
-        /*                                                                                       */
+                        ////////////////
 
 
         if (targetCard.hasTag(ShinyMoonBase.changePIERCE) && PierceDraw) {
@@ -153,7 +159,7 @@ public class GoddessSpirit extends CustomRelic {
             PierceDraw = false;
         }
 
-        /*                                                                                       */
+                             //////////
         System.out.println("checking if " + targetCard + " is changing stance into ACE....");
         System.out.println();
         System.out.print("checking if " + targetCard + " has ACE tag.... | ");
@@ -165,7 +171,7 @@ public class GoddessSpirit extends CustomRelic {
         System.out.println("-.-.-.-CHECK DONE-.-.-.-");
         System.out.println("_------------------------------------_");
         System.out.println();
-        /*                                                                                       */
+                             /////////
 
 ////////////
         if (targetCard.hasTag(ShinyMoonBase.changeACE) && AceDraw) {
@@ -177,7 +183,7 @@ public class GoddessSpirit extends CustomRelic {
 
         System.out.println("_DONE CHECKING " + targetCard + "_");
     }
-
+*/
 
     // Description
     @Override
@@ -185,4 +191,27 @@ public class GoddessSpirit extends CustomRelic {
         return DESCRIPTIONS[0];
     }
 
+    @Override
+    public void onChannel(AbstractOrb orb) {
+        if(orb.ID == SlashOrb.ORB_ID || orb.ID == EngardeOrb.ORB_ID ||
+                orb.ID == ParryOrb.ORB_ID || orb.ID == PierceOrb.ORB_ID ||
+                orb.ID == AceOrb.ORB_ID ){
+
+            if (orb.ID.equals("SlashStance")){flash();
+            AbstractDungeon.actionManager.addToBottom(new DrawCardAction(AbstractDungeon.player, 1));
+                SlashDraw = false;}
+            if (orb.ID.equals("EngardeStance")){flash();
+                AbstractDungeon.actionManager.addToBottom(new DrawCardAction(AbstractDungeon.player, 1));
+                EngardeDraw = false;}
+            if (orb.ID.equals("ParryStance")){flash();
+                AbstractDungeon.actionManager.addToBottom(new DrawCardAction(AbstractDungeon.player, 1));
+                ParryDraw = false;}
+            if (orb.ID.equals("PierceStance")){flash();
+                AbstractDungeon.actionManager.addToBottom(new DrawCardAction(AbstractDungeon.player, 1));
+                PierceDraw = false;}
+            if (orb.ID.equals("AceStance")){flash();
+            AbstractDungeon.actionManager.addToBottom(new DrawCardAction(AbstractDungeon.player, 1));
+                AceDraw = false;}
+        }
+    }
 }

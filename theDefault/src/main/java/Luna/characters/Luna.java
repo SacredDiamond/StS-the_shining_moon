@@ -65,7 +65,7 @@ public class Luna extends CustomPlayer {
     public static final int MAX_HP = 75;
     public static final int STARTING_GOLD = 99;
     public static final int CARD_DRAW = 4;
-    public static final int ORB_SLOTS = 3;
+    public static final int ORB_SLOTS = 1;
 
     // =============== /BASE STATS/ =================
 
@@ -157,20 +157,19 @@ public class Luna extends CustomPlayer {
         logger.info("Begin loading starter Deck Strings");
 
         retVal.add(DefaultCommonAttack.ID);
-        retVal.add(DefaultUncommonAttack.ID);
-        retVal.add(DefaultRareAttack.ID);
+        retVal.add(DefaultCommonAttack.ID);
 
         retVal.add(DefaultCommonSkill.ID);
-        retVal.add(DefaultUncommonSkill.ID);
-        retVal.add(DefaultRareSkill.ID);
+        retVal.add(DefaultCommonSkill.ID);
 
-        retVal.add(DefaultCommonPower.ID);
-        retVal.add(DefaultUncommonPower.ID);
-        retVal.add(DefaultRarePower.ID);
+        retVal.add(Engarde.ID);
+        retVal.add(Engarde.ID);
+        retVal.add(Slash.ID);
+        retVal.add(Slash.ID);
 
-        retVal.add(DefaultAttackWithVariable.ID);
-        retVal.add(LunaSecondMagicNumberSkill.ID);
-        retVal.add(OrbSkill.ID);
+        retVal.add(AdaptiveStance.ID);
+
+
         return retVal;
     }
 
