@@ -72,7 +72,6 @@ public class SlashOrb extends AbstractOrb implements OnChannelOrb {
     @Override
     public void onChannel(AbstractOrb orb) {
 
-
         AbstractDungeon.actionManager.addToBottom(
                 new ApplyPowerAction(p, p, new StrengthPower( p, 2), 2));
 
