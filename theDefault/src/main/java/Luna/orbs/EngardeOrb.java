@@ -39,7 +39,8 @@ public class EngardeOrb extends AbstractOrb implements OnChannelOrb {
     private float vfxIntervalMax = 0.4f;
     private static final float ORB_WAVY_DIST = 0.04f;
     private static final float PI_4 = 12.566371f;
-AbstractPlayer p = AbstractDungeon.player;
+    AbstractPlayer p = AbstractDungeon.player;
+
     public EngardeOrb() {
 
         ID = ORB_ID;
@@ -64,21 +65,23 @@ AbstractPlayer p = AbstractDungeon.player;
 
     @Override
     public void applyFocus() {
-       // passiveAmount = basePassiveAmount;
+        // passiveAmount = basePassiveAmount;
         evokeAmount = baseEvokeAmount;
     }
 
 
-
     @Override
     public void onChannel(AbstractOrb orb) {
+        if (orb instanceof EngardeOrb) {
 
         AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(p, p, new DexterityPower( p, 2), 2));
+                new ApplyPowerAction(p, p, new DexterityPower(p, 2), 2));
 
         AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(p, p, new StrengthPower( p, -1), -1));
+                new ApplyPowerAction(p, p, new StrengthPower(p, -1), -1));
     }
+
+}
     @Override
     public void onEvoke() { // 1.On Orb Evoke
         AbstractPlayer p = AbstractDungeon.player;

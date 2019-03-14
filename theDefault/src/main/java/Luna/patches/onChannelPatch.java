@@ -40,7 +40,7 @@ public class onChannelPatch
 
         for (AbstractOrb orb : __intance.orbs) {
 
-            if (orb instanceof OnChannelRelic) {
+            if (orb instanceof OnChannelOrb) {
 
                 ((OnChannelOrb)orb).onChannel(orbToSet);
 
